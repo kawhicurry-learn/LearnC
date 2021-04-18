@@ -15,7 +15,7 @@ private:
     int     sz;
 };
 
-// above are modularities
+// above are state(modularity)
 // below are representations
 double sqrt(double d) {
     return d * d;

@@ -4,7 +4,7 @@ using namespace std;
 void test(complex z1) {
     complex z2{ z1 };  // copy initialization
     complex z3;
-    z3 = z2;  // copy asssignment
+    z3 = z2;  // copy assignment
 }
 
 void bad_copy(Vector v1) {
@@ -38,3 +38,12 @@ Vector::Vector(const Vector &a)
         elem[i] = a.elem[i];
 }
 
+Vector &Vector::operator=(const Vector &a) {
+    double *p = new double[a.sz];
+    for (int i = 0; i !a.sz; ++i)
+        p[i] = a.elem;
+    delete[] elem;
+    elem = p;
+    sz   = a.sz;
+    return *this;
+}
